@@ -1,9 +1,10 @@
+@import url("../fonts/fonts.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter;
   line-height: 1.5;
   
 }
@@ -12,7 +13,9 @@ body {
   margin: auto;
   max-width: 1200px;
   min-height: 100vh;
-  padding: 10px;
   background: #080808;
-  color: #fff;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
