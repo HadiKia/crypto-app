@@ -5,7 +5,7 @@ import chartDown from "../../assets/chart-down.svg";
 
 // Styles
 const containerStyle =
-  "flex justify-center mt-[50px] mb-[100px] min-h-[1000px] bg-[#121318] mx-5 lg:mx-0 py-6 px-4 md:px-6 md:py-8 lg:p-8 xl:p-9 rounded-xl text-[#F1F1F1] ";
+  "flex justify-center mt-[50px] mb-10 min-h-[1000px] bg-[#121318] mx-5 lg:mx-0 py-6 px-4 md:px-6 md:py-8 lg:p-8 xl:p-9 rounded-xl text-[#F1F1F1] ";
 const tableStyle = "w-full block overflow-y-scroll lg:table";
 const theadStyle = "border-b-2 border-[#232530] text-[#9295A6]";
 const thStyle = "text-sm lg:text-base px-4 text-left pb-4 font-medium";
@@ -86,7 +86,7 @@ const TableRow = ({
       <td className={tdStyle}>${current_price.toLocaleString()}</td>
       <td className={price_change > 0 ? successStyle : errorStyle}>
         {price_change > 0 && <span>+</span>}
-        {price_change.toFixed(2)}%
+        {price_change}%
       </td>
       <td className={tdStyle}>${total_volume.toLocaleString()}</td>
       <td className={tdStyle}>${market_cap.toLocaleString()}</td>
