@@ -21,10 +21,10 @@ const chartImgStyle = "w-full  lg:w-fit lg:scale-100";
 const rankStickyStyle = "px-2 md:px-4 sticky left-0 bg-inherit";
 const coinStickyStyle = "sticky left-[33px] bg-inherit";
 
-function TableCoin({ coins, isLoading, currency }) {
+function TableCoin({ coins, isLoading, isError, currency }) {
   return (
     <div className={containerStyle}>
-      {isLoading ? (
+      {isLoading && !isError ? (
         <RotatingLines
           height="50"
           width="50"
@@ -32,6 +32,8 @@ function TableCoin({ coins, isLoading, currency }) {
           strokeWidth="2"
           animationDuration="2"
         />
+      ) : isError ? (
+        <h2 className="text-[#9295A6] text-xl font-medium">Loading Error</h2>
       ) : (
         <table className={tableStyle}>
           <thead className={theadStyle}>
