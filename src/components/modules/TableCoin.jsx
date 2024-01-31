@@ -17,11 +17,11 @@ const symbolImgStyle = "w-8 lg:w-10";
 const symbolSpanStyle = "text-[#9295A6] text-xs font-medium pt-0.5";
 const successStyle = "text-[#57bc7c] font-medium";
 const errorStyle = "text-[#d33636] font-medium";
-const chartImgStyle = "w-full  lg:w-fit lg:scale-100"
-const rankStickyStyle = "px-2 md:px-4 sticky left-0 bg-inherit"
-const coinStickyStyle = "sticky left-[33px] bg-inherit"
+const chartImgStyle = "w-full  lg:w-fit lg:scale-100";
+const rankStickyStyle = "px-2 md:px-4 sticky left-0 bg-inherit";
+const coinStickyStyle = "sticky left-[33px] bg-inherit";
 
-function TableCoin({ coins, isLoading }) {
+function TableCoin({ coins, isLoading, currency }) {
   return (
     <div className={containerStyle}>
       {isLoading ? (
@@ -48,7 +48,7 @@ function TableCoin({ coins, isLoading }) {
 
           <tbody className="overflow-scroll">
             {coins.map((coin) => (
-              <TableRow coin={coin} key={coin.id} />
+              <TableRow coin={coin} key={coin.id} currency={currency} />
             ))}
           </tbody>
         </table>
@@ -70,7 +70,21 @@ const TableRow = ({
     market_cap,
     total_volume,
   },
+  currency,
 }) => {
+  const formatCurrency = (value) => {
+    switch (currency) {
+      case "usd":
+        return `$${value.toLocaleString()}`;
+      case "eur":
+        return `€${value.toLocaleString()}`;
+      case "jpy":
+        return `¥${value.toLocaleString()}`;
+      default:
+        return `$${value.toLocaleString()}`;
+    }
+  };
+
   return (
     <tr className={trStyle}>
       <td className={`${tdStyle} ${rankStickyStyle}`}>{rank}</td>
@@ -78,20 +92,24 @@ const TableRow = ({
         <div className={symbolStyle}>
           <img src={image} alt={name} className={symbolImgStyle} />
           <div className="flex flex-col pr-8 md:pr-0 lg:flex-row lg:items-center lg:gap-x-3">
-          <span>{name}</span>
-          <span className={symbolSpanStyle}>{symbol.toUpperCase()}</span>
+            <span>{name}</span>
+            <span className={symbolSpanStyle}>{symbol.toUpperCase()}</span>
           </div>
         </div>
       </td>
-      <td className={tdStyle}>${current_price.toLocaleString()}</td>
+      <td className={tdStyle}>{formatCurrency(current_price)}</td>
       <td className={price_change > 0 ? successStyle : errorStyle}>
         {price_change > 0 && <span>+</span>}
         {price_change}%
       </td>
-      <td className={tdStyle}>${total_volume.toLocaleString()}</td>
-      <td className={tdStyle}>${market_cap.toLocaleString()}</td>
-      <td >
-        <img src={price_change > 0 ? chartUp : chartDown} alt={name} className={chartImgStyle} />
+      <td className={tdStyle}>{formatCurrency(total_volume)}</td>
+      <td className={tdStyle}>{formatCurrency(market_cap)}</td>
+      <td>
+        <img
+          src={price_change > 0 ? chartUp : chartDown}
+          alt={name}
+          className={chartImgStyle}
+        />
       </td>
     </tr>
   );
