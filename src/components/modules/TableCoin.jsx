@@ -21,7 +21,7 @@ const chartImgStyle = "w-full  lg:w-fit lg:scale-100";
 const rankStickyStyle = "px-2 md:px-4 sticky left-0 bg-inherit";
 const coinStickyStyle = "sticky left-[33px] bg-inherit";
 
-function TableCoin({ coins, isLoading, isError, currency }) {
+function TableCoin({ coins, isLoading, isError, currency, setChart }) {
   return (
     <div className={containerStyle}>
       {isLoading && !isError ? (
@@ -50,7 +50,12 @@ function TableCoin({ coins, isLoading, isError, currency }) {
 
           <tbody className="overflow-scroll">
             {coins.map((coin) => (
-              <TableRow coin={coin} key={coin.id} currency={currency} />
+              <TableRow
+                coin={coin}
+                key={coin.id}
+                currency={currency}
+                setChart={setChart}
+              />
             ))}
           </tbody>
         </table>
@@ -73,6 +78,7 @@ const TableRow = ({
     total_volume,
   },
   currency,
+  setChart,
 }) => {
   const formatCurrency = (value) => {
     switch (currency) {
@@ -87,8 +93,12 @@ const TableRow = ({
     }
   };
 
+  const showHandler = () => {
+    setChart(true);
+  };
+
   return (
-    <tr className={trStyle}>
+    <tr className={trStyle} onClick={showHandler}>
       <td className={`${tdStyle} ${rankStickyStyle}`}>{rank}</td>
       <td className={`${tdStyle} ${coinStickyStyle}`}>
         <div className={symbolStyle}>
