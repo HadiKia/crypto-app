@@ -9,9 +9,7 @@ function Chart({ chart, setChart }) {
   return (
     <div className={containerStyle}>
       <div className={backgroundDivStyle} onClick={() => setChart(null)}></div>
-      <div className={chartDivStyle} onClick={() => setChart(true)}>
-        chart
-      </div>
+      <div className={chartDivStyle}>chart</div>
     </div>
   );
 }
