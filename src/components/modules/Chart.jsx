@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { convertData } from "../../helpers/convertData";
+
 // styles
 const containerStyle =
   "fixed inset-0 w-full h-full backdrop-blur-sm grid place-items-center";
@@ -6,6 +9,9 @@ const chartDivStyle =
   "relative w-[800px] h-[400px] bg-[#08080899] border border-[#232530]  text-[#9295A6] rounded-lg";
 
 function Chart({ chart, setChart }) {
+  const [type, setType] = useState("prices");
+  console.log(convertData(chart, type));
+
   return (
     <div className={containerStyle}>
       <div className={backgroundDivStyle} onClick={() => setChart(null)}></div>
