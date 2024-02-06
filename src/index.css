@@ -18,3 +18,24 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
+.recharts-default-tooltip {
+  background: #121318 !important;
+  border: 1px solid #232530 !important;
+}
+.recharts-dot {
+  stroke: #5367ff00;
+  fill: #5367ff00;
+  transition: all 0.2s ease-in-out;
+}
+.recharts-dot:hover {
+  fill: #5367ff;
+  stroke: #5367ff;
+}
+.recharts-cartesian-axis-line,
+.recharts-cartesian-axis-line {
+  stroke: #9295a630;
+}
+.recharts-cartesian-axis-tick-line {
+  stroke: none;
+}
