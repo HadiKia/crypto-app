@@ -15,10 +15,14 @@ import { convertData, formatPrice } from "../../helpers/convertData";
 // styles
 const containerStyle =
   "fixed inset-0 w-full h-full backdrop-blur-sm grid place-items-center";
-const backgroundDivStyle = "absolute top-0 right-0 left-0 bottom-0";
+const backgroundDivStyle = "absolute top-0 right-0 left-0 bottom-0 ";
 const chartDivStyle =
-  "relative w-[800px] h-[400px] bg-[#08080899] border border-[#232530] text-[#9295A6] rounded-lg p-10";
-const graphStyle = "w-full h-full";
+  "relative w-[1200px] bg-[#080808d8] border border-[#232530] text-[#9295A6] rounded-lg p-10";
+const nameStyle = "";
+const graphStyle = "w-full h-[450px]";
+const typesStyle = "";
+const detailsStyle = "";
+const detailsItemStyle = "";
 
 function Chart({ chart, setChart }) {
   const [type, setType] = useState("prices");
@@ -27,8 +31,31 @@ function Chart({ chart, setChart }) {
     <div className={containerStyle}>
       <div className={backgroundDivStyle} onClick={() => setChart(null)}></div>
       <div className={chartDivStyle}>
+        <div className={nameStyle}>
+          <img src={chart.coin.image} alt={chart.coin.name} className="w-10" />
+          <p>{chart.coin.name}</p>
+        </div>
         <div className={graphStyle}>
           <ChartComponent data={convertData(chart, type)} type={type} />
+        </div>
+        <div className={typesStyle}>
+          <button>Prices</button>
+          <button>Market Caps</button>
+          <button>Total Volumes</button>
+        </div>
+        <div className={detailsStyle}>
+          <div className={detailsItemStyle}>
+            <p>Prices:</p>
+            <span>{formatPrice(chart.coin.current_price)}</span>
+          </div>
+          <div className={detailsItemStyle}>
+            <p>ATH:</p>
+            <span>{formatPrice(chart.coin.ath)}</span>
+          </div>
+          <div className={detailsItemStyle}>
+            <p>Market Cap:</p>
+            <span>{formatPrice(chart.coin.market_cap)}</span>
+          </div>
         </div>
       </div>
     </div>
