@@ -27,6 +27,12 @@ const detailsItemStyle = "";
 function Chart({ chart, setChart }) {
   const [type, setType] = useState("prices");
 
+  const typeHandler = (event) => {
+    if (event.target.tagName === "BUTTON") {
+      const type = event.target.innerText.toLowerCase().replace(" ", "_");
+      setType(type);
+    }
+  };
   return (
     <div className={containerStyle}>
       <div className={backgroundDivStyle} onClick={() => setChart(null)}></div>
@@ -38,10 +44,16 @@ function Chart({ chart, setChart }) {
         <div className={graphStyle}>
           <ChartComponent data={convertData(chart, type)} type={type} />
         </div>
-        <div className={typesStyle}>
-          <button>Prices</button>
-          <button>Market Caps</button>
-          <button>Total Volumes</button>
+        <div className={typesStyle} onClick={typeHandler}>
+          <button className={type === "prices" ? "bg-[#5367FF]" : ""}>
+            Prices
+          </button>
+          <button className={type === "market_caps" ? "bg-[#5367FF]" : ""}>
+            Market Caps
+          </button>
+          <button className={type === "total_volumes" ? "bg-[#5367FF]" : ""}>
+            Total Volumes
+          </button>
         </div>
         <div className={detailsStyle}>
           <div className={detailsItemStyle}>
@@ -80,7 +92,7 @@ const ChartComponent = ({ data, type }) => {
           domain={["auto", "auto"]}
         />
         <XAxis dataKey="date" domain={["auto", "auto"]} />
-        <Legend />
+        <Legend verticalAlign="top" height={40} />
         <Tooltip cursor={{ stroke: "#5367FF", strokeWidth: 0.5 }} />
         <CartesianGrid stroke="#9295A630" />
       </LineChart>
