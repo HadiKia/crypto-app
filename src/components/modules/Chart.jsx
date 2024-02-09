@@ -16,13 +16,21 @@ import { convertData, formatPrice } from "../../helpers/convertData";
 const containerStyle =
   "fixed inset-0 w-full h-full backdrop-blur-sm grid place-items-center";
 const backgroundDivStyle = "absolute top-0 right-0 left-0 bottom-0 ";
+const crossStyle =
+  "absolute z-10 right-5 top-[26px] bg-[#d336363b] text-[#d33636] px-2 rounded text-lg font-medium xl:hidden";
 const chartDivStyle =
-  "relative w-[1200px] bg-[#080808d8] border border-[#232530] text-[#9295A6] rounded-lg p-10";
-const nameStyle = "";
-const graphStyle = "w-full h-[450px]";
-const typesStyle = "";
-const detailsStyle = "";
-const detailsItemStyle = "";
+  "relative w-full h-full max-w-[1200px] xl:h-[700px] bg-[#080808ce] border border-[#232530] text-[#9295A6] rounded-lg p-5 xl:p-7";
+const nameStyle =
+  "flex items-center gap-x-3 font-medium mb-2 text-lg xl:text-xl";
+const graphStyle = "w-full h-[450px] mb-5 xl:mb-9 xl:h-[490px]";
+const typesStyle =
+  "flex items-center justify-between md:text-lg xl:justify-start xl:gap-x-6";
+const typeButtonStyle = "py-1 px-2 rounded duration-300";
+const typeButtonSelectedStyle = `${typeButtonStyle} bg-[#5367FF] text-[#E5E7EB] font-medium`;
+const detailsStyle = "flex flex-col gap-y-3 xl:flex-row xl:gap-x-8";
+const detailsItemStyle = "flex items-center gap-x-2 md:text-lg";
+const pStyle = "text-[#777777]";
+const spanStyle = "text-[#9295A6] font-medium";
 
 function Chart({ chart, setChart }) {
   const [type, setType] = useState("prices");
@@ -36,37 +44,66 @@ function Chart({ chart, setChart }) {
   return (
     <div className={containerStyle}>
       <div className={backgroundDivStyle} onClick={() => setChart(null)}></div>
+      <button className={crossStyle} onClick={() => setChart(null)}>
+        X
+      </button>
       <div className={chartDivStyle}>
         <div className={nameStyle}>
-          <img src={chart.coin.image} alt={chart.coin.name} className="w-10" />
+          <img
+            src={chart.coin.image}
+            alt={chart.coin.name}
+            className="w-12 xl:w-14"
+          />
           <p>{chart.coin.name}</p>
         </div>
         <div className={graphStyle}>
           <ChartComponent data={convertData(chart, type)} type={type} />
         </div>
-        <div className={typesStyle} onClick={typeHandler}>
-          <button className={type === "prices" ? "bg-[#5367FF]" : ""}>
-            Prices
-          </button>
-          <button className={type === "market_caps" ? "bg-[#5367FF]" : ""}>
-            Market Caps
-          </button>
-          <button className={type === "total_volumes" ? "bg-[#5367FF]" : ""}>
-            Total Volumes
-          </button>
-        </div>
-        <div className={detailsStyle}>
-          <div className={detailsItemStyle}>
-            <p>Prices:</p>
-            <span>{formatPrice(chart.coin.current_price)}</span>
+        <div className="flex flex-col gap-y-9 xl:flex-row xl:items-center xl:justify-between text-sm md:text-base">
+          <div className={typesStyle} onClick={typeHandler}>
+            <button
+              className={
+                type === "prices" ? typeButtonSelectedStyle : typeButtonStyle
+              }
+            >
+              Prices
+            </button>
+            <button
+              className={
+                type === "market_caps"
+                  ? typeButtonSelectedStyle
+                  : typeButtonStyle
+              }
+            >
+              Market Caps
+            </button>
+            <button
+              className={
+                type === "total_volumes"
+                  ? typeButtonSelectedStyle
+                  : typeButtonStyle
+              }
+            >
+              Total Volumes
+            </button>
           </div>
-          <div className={detailsItemStyle}>
-            <p>ATH:</p>
-            <span>{formatPrice(chart.coin.ath)}</span>
-          </div>
-          <div className={detailsItemStyle}>
-            <p>Market Cap:</p>
-            <span>{formatPrice(chart.coin.market_cap)}</span>
+          <div className={detailsStyle}>
+            <div className={detailsItemStyle}>
+              <p className={pStyle}>Prices:</p>
+              <span className={spanStyle}>
+                {formatPrice(chart.coin.current_price)}
+              </span>
+            </div>
+            <div className={detailsItemStyle}>
+              <p className={pStyle}>ATH:</p>
+              <span className={spanStyle}>{formatPrice(chart.coin.ath)}</span>
+            </div>
+            <div className={detailsItemStyle}>
+              <p className={pStyle}>Market Cap:</p>
+              <span className={spanStyle}>
+                {formatPrice(chart.coin.market_cap)}
+              </span>
+            </div>
           </div>
         </div>
       </div>

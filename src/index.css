@@ -39,3 +39,8 @@ body {
 .recharts-cartesian-axis-tick-line {
   stroke: none;
 }
+
+.recharts-text tspan {
+  font-size: 0.9rem !important;
+  font-weight: 500;
+}
