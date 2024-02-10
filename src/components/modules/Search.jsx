@@ -5,7 +5,7 @@ import { RotatingLines } from "react-loader-spinner";
 
 // styles
 const containerStyle =
-  "relative mt-24 flex items-start gap-x-3 md:gap-x-5 mx-5 xl:mx-0";
+  "relative flex items-start gap-x-3 md:gap-x-5 mx-5 xl:mx-0";
 const searchBoxStyle =
   "flex items-center bg-[#121318] gap-x-1 md:gap-x-2 px-4 py-4 text-[#9295A6] rounded-lg";
 const inputStyle =
@@ -81,13 +81,12 @@ function Search({ currency, setCurrency }) {
           {isLoading ? (
             <div className="h-36 grid place-items-center">
               <RotatingLines
-              height="45"
-              width="45"
-              strokeColor="#69717d"
-              strokeWidth="2"
-              animationDuration="2"
-              
-            />
+                height="45"
+                width="45"
+                strokeColor="#69717d"
+                strokeWidth="2"
+                animationDuration="2"
+              />
             </div>
           ) : (
             <ul className={ulStyle}>
@@ -109,7 +108,11 @@ function Search({ currency, setCurrency }) {
         </div>
       )}
       {!coins.length && text && !isLoading && (
-        <h2 className={`${searchResultStyle} !items-center !h-[178px] lg:text-lg`}>Coin not found</h2>
+        <h2
+          className={`${searchResultStyle} !items-center !h-[178px] lg:text-lg`}
+        >
+          Coin not found
+        </h2>
       )}
     </div>
   );

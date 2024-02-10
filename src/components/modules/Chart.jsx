@@ -14,7 +14,7 @@ import { convertData, formatPrice } from "../../helpers/convertData";
 
 // styles
 const containerStyle =
-  "fixed inset-0 w-full h-full backdrop-blur-sm grid place-items-center";
+  "fixed inset-0 w-full h-full backdrop-blur-sm grid place-items-center z-10";
 const backgroundDivStyle = "absolute top-0 right-0 left-0 bottom-0 ";
 const crossStyle =
   "absolute z-10 right-5 top-[26px] bg-[#d336363b] text-[#d33636] px-2 rounded text-lg font-medium xl:hidden";

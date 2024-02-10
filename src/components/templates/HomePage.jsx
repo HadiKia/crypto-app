@@ -31,7 +31,7 @@ function HomePage() {
   }, [page, currency]);
 
   return (
-    <div>
+  <div className="max-w-screen-xl mx-auto">
       <Search currency={currency} setCurrency={setCurrency} />
       <TableCoin
         coins={coins}
