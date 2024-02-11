@@ -1,4 +1,3 @@
-
 import FooterSocialMedia from "./FooterSocialMedia";
 
 const logoIcon = (
@@ -18,8 +17,10 @@ const logoIcon = (
   </svg>
 );
 
-const footerTitle = "font-semibold text-xl mb-5";
-const footerLinks = "flex flex-col gap-y-3 text-sm font-medium text-[#9295A6] ";
+const titleStyle = "font-semibold text-xl mb-5";
+const linkBoxStyle =
+  "flex flex-col gap-y-3 text-sm font-medium text-[#9295A6] ";
+const linkStyle = "hover:text-[#5367FF] duration-500";
 
 function Footer() {
   return (
@@ -30,45 +31,83 @@ function Footer() {
         <div className="flex flex-col gap-y-8 md:flex-row md:gap-x-20 lg:justify-between pb-8 mb-7 border-b border-[#232530]">
           <div className="flex gap-x-20 lg:w-full lg:gap-x-40 xl:gap-x-64">
             <div>
-              <h5 className={footerTitle}>Exchange</h5>
-              <div className={footerLinks}>
-                <a href="#">Exchange Home</a>
-                <a href="#">Margin Trading</a>
-                <a href="#">Derivatives</a>
-                <a href="#">Supercharger</a>
+              <h5 className={titleStyle}>Exchange</h5>
+              <div className={linkBoxStyle}>
+                <a href="#" className={linkStyle}>
+                  Exchange Home
+                </a>
+                <a href="#" className={linkStyle}>
+                  Margin Trading
+                </a>
+                <a href="#" className={linkStyle}>
+                  Derivatives
+                </a>
+                <a href="#" className={linkStyle}>
+                  Supercharger
+                </a>
               </div>
             </div>
             <div>
-              <h5 className={footerTitle}>Support</h5>
-              <div className={footerLinks}>
-                <a href="#">Request form</a>
-                <a href="#">Contact Support</a>
-                <a href="#">FAQ</a>
-                <a href="#">Security</a>
+              <h5 className={titleStyle}>Support</h5>
+              <div className={linkBoxStyle}>
+                <a href="#" className={linkStyle}>
+                  Request form
+                </a>
+                <a href="#" className={linkStyle}>
+                  Contact Support
+                </a>
+                <a href="#" className={linkStyle}>
+                  FAQ
+                </a>
+                <a href="#" className={linkStyle}>
+                  Security
+                </a>
               </div>
             </div>
           </div>
 
           <div className="flex gap-x-20 lg:w-full lg:gap-x-40 xl:gap-x-64">
             <div>
-              <h5 className={footerTitle}>Company</h5>
-              <div className={footerLinks}>
-                <a href="#">About us</a>
-                <a href="#">Careers</a>
-                <a href="#">News</a>
-                <a href="#">Security</a>
-                <a href="#">Community</a>
-                <a href="#">Announcements</a>
+              <h5 className={titleStyle}>Company</h5>
+              <div className={linkBoxStyle}>
+                <a href="#" className={linkStyle}>
+                  About us
+                </a>
+                <a href="#" className={linkStyle}>
+                  Careers
+                </a>
+                <a href="#" className={linkStyle}>
+                  News
+                </a>
+                <a href="#" className={linkStyle}>
+                  Security
+                </a>
+                <a href="#" className={linkStyle}>
+                  Community
+                </a>
+                <a href="#" className={linkStyle}>
+                  Announcements
+                </a>
               </div>
             </div>
             <div>
-              <h5 className={footerTitle}>Resources</h5>
-              <div className={footerLinks}>
-                <a href="#">Downloads</a>
-                <a href="#">Desktop Application</a>
-                <a href="#">But Crypto</a>
-                <a href="#">Referral</a>
-                <a href="#">Listing Trading</a>
+              <h5 className={titleStyle}>Resources</h5>
+              <div className={linkBoxStyle}>
+                <a href="#" className={linkStyle}>
+                  Downloads
+                </a>
+                <a href="#" className={linkStyle}>
+                  Desktop Application
+                </a>
+                <a href="#" className={linkStyle}>
+                  But Crypto
+                </a>
+                <a href="#" className={linkStyle}>
+                  Referral
+                </a>
+                <a href="#" className={linkStyle}>
+                  Listing Trading
+                </a>
               </div>
             </div>
           </div>

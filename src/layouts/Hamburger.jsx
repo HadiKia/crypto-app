@@ -111,7 +111,7 @@ function Hamburger() {
             </div>
           </div>
 
-          <div onClick={openMenu}>
+          <div>
             <HeaderButtons />
           </div>
         </div>

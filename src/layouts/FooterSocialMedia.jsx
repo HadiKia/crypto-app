@@ -19,10 +19,14 @@ function FooterSocialMedia() {
         </div>
       </div>
       <div
-        className={`${itemsStyles} flex items-center justify-center gap-x-4 -mb-4 md:mb-0 pb-4 `}
+        className={`${itemsStyles} flex items-center justify-center gap-x-4 !mb-0 md:mb-0 pb-4 `}
       >
-        <img src={instagramIcon} alt="instagram" />
-        <img src={githubIcon} alt="github" />
+        <a href="https://www.instagram.com/ihadikia" target="_blank">
+          <img src={instagramIcon} alt="instagram" />
+        </a>
+        <a href="https://github.com/HadiKia" target="_blank">
+          <img src={githubIcon} alt="github" />
+        </a>
         <img src={linkedinIcon} alt="linkedin" />
       </div>
     </div>

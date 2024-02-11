@@ -1,5 +1,5 @@
 const headerButton =
-  "px-9 py-3 rounded-lg font-medium active:scale-90 duration-500";
+  "text-sm md:text-base px-8 md:px-7 lg:px-9 py-3 rounded-lg font-medium active:scale-90 duration-500";
 
 function HeaderButtons() {
   return (

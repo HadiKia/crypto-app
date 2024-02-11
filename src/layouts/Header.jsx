@@ -19,10 +19,10 @@ const logoIcon = (
 );
 
 const headerStyle =
-  "container max-w-screen-xl flex items-center justify-between mx-auto py-4 md:py-8 px-5 xl:px-0 mb-8";
+  "container max-w-screen-xl flex items-center justify-between mx-auto py-4 md:py-0 px-5 xl:px-0 mb-8";
 const ulStyle = "hidden md:flex items-center gap-x-6 lg:gap-x-8 pt-2";
 const liStyle =
-  "py-2 text-lg font-medium text-[#f1f1f1] hover:text-[#5367FF] hover:text-[#5367FF] duration-500";
+  "py-8 font-medium text-[#f1f1f1] hover:text-[#5367FF] border-b-2 border-[#5367FF00] hover:border-[#5367FF] duration-500";
 
 function Header() {
   return (
@@ -31,20 +31,17 @@ function Header() {
         <div className="flex items-center gap-x-4 lg:gap-x-8 xl:gap-x-10">
           <span>{logoIcon} </span>
           <ul className={ulStyle}>
-            <li>
-              <a className={liStyle} href="#">
-                Home
-              </a>
+            <li className={liStyle}>
+              <a href="#">Market</a>
             </li>
-            <li>
-              <a className={liStyle} href="#">
-                Market
-              </a>
+            <li className={liStyle}>
+              <a href="#">Watchlist</a>
             </li>
-            <li>
-              <a className={liStyle} href="#">
-                About
-              </a>
+            <li className={liStyle}>
+              <a href="#">Portfolio</a>
+            </li>
+            <li className={liStyle}>
+              <a href="#">Learn</a>
             </li>
           </ul>
         </div>

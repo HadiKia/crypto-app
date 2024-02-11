@@ -25,7 +25,7 @@ const nameStyle =
 const graphStyle = "w-full h-[450px] mb-5 xl:mb-9 xl:h-[490px]";
 const typesStyle =
   "flex items-center justify-between md:text-lg xl:justify-start xl:gap-x-6";
-const typeButtonStyle = "py-1 px-2 rounded duration-300";
+const typeButtonStyle = "py-1 px-2 rounded-lg duration-300 lg:px-5 lg:py-2";
 const typeButtonSelectedStyle = `${typeButtonStyle} bg-[#5367FF] text-[#E5E7EB] font-medium`;
 const detailsStyle = "flex flex-col gap-y-3 xl:flex-row xl:gap-x-8";
 const detailsItemStyle = "flex items-center gap-x-2 md:text-lg";
