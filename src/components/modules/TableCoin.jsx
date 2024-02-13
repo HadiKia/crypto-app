@@ -3,6 +3,7 @@ import { RotatingLines } from "react-loader-spinner";
 import { marketChart } from "../../services/cryptoApi";
 import chartUp from "../../assets/chart-up.svg";
 import chartDown from "../../assets/chart-down.svg";
+import { useEffect } from "react";
 
 // Styles
 const containerStyle =
@@ -23,6 +24,10 @@ const rankStickyStyle = "px-2 md:px-4 sticky left-0 bg-inherit";
 const coinStickyStyle = "sticky left-[33px] bg-inherit";
 
 function TableCoin({ coins, isLoading, isError, currency, setChart }) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [isLoading]);
+
   return (
     <div className={containerStyle}>
       {isLoading && !isError ? (
