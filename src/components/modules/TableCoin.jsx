@@ -39,7 +39,9 @@ function TableCoin({ coins, isLoading, isError, currency, setChart }) {
           animationDuration="2"
         />
       ) : isError ? (
-        <h2 className="text-[#9295A6] text-xl font-medium">Loading Error</h2>
+        <h2 className="text-[#9295A6] text-xl font-medium my-20">
+          We encountered an issue while fetching the data. Please try again
+        </h2>
       ) : (
         <table className={tableStyle}>
           <thead className={theadStyle}>

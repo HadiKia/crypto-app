@@ -1,5 +1,5 @@
 const BASE_URL = "https://api.coingecko.com/api/v3";
-const API_KEY = "CG-EYjdgv3aUinMb5XbrmEH8nVj";
+const API_KEY = "CG-oZ4o2njbjJ9DT4wqfrGz5De9";
 
 const getCoinList = (page, currency) =>
   `${BASE_URL}/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=20&page=${page}&x_cg_demo_api_key=${API_KEY}`;
